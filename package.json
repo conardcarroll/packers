@@ -1,0 +1,9 @@
+{
+    "name" : "packers",
+    "description" : "Restful attempts",
+    "version" : "0.0.2",
+    "dependencies" : {
+        "express" : "2.5.7",
+        "express-resource" : "0.2.4"
+    }
+}
