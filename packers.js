@@ -1,16 +1,14 @@
-var packers = {
-    "packers" : [{
-            "id" : 1,
-            "name" : "John",
-        }, {
-            "id" : 2,
-            "name" : "Matt",
-        }, {
-            "id" : 3,
-            "name" : "Conard",
-        }
-    ]
-};
+var packers = [{
+        "id" : 1,
+        "name" : "John",
+    }, {
+        "id" : 2,
+        "name" : "Matt",
+    }, {
+        "id" : 3,
+        "name" : "Conard",
+    }
+]
 
 var conardStats = {
     "name" : "Conard",
@@ -86,9 +84,9 @@ var johnStats = {
 
 exports.index = function (req, res) {
     res.header('content-type', "application/json");
-    res.render('packer', {
-        site: 'http://localhost:3000/collection/tasks/',
-        packer: packers.packers[0]
+    res.render('packers', {
+        site : 'http://localhost:8004/packers/',
+        packers : packers
     });
 };
 

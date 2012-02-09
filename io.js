@@ -1,15 +1,5 @@
-var packers = {
-    "packers" : [{
-            "name" : "John",
-            "station" : "Pack 1"
-        }, {
-            "name" : "Matt",
-            "station" : "Pack You"
-        }, {
-            "name" : "Conard",
-            "station" : "Pack It All"
-        }
-    ]
+var points = {
+    "collection" :
 };
 
 var stations = {
