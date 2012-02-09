@@ -1,162 +1,147 @@
 var packers = {
-    "Packers" : [
-        {
-          "Name" : "John",
-          "Station" : "Pack 1"
-        },
-        {
-          "Name" : "Matt",
-          "Station" : "Pack You"
-        },
-        {
-          "Name" : "Conard",
-          "Station" : "Pack It All"
-        }]};
+    "packers" : [{
+            "id" : 1,
+            "name" : "John",
+        }, {
+            "id" : 2,
+            "name" : "Matt",
+        }, {
+            "id" : 3,
+            "name" : "Conard",
+        }
+    ]
+};
 
 var conardStats = {
-    "Name" : "Conard",
-    "Data" : [
-        {
-            "Packed" : 10,
-            "Time" : '2012-02-02 0800'
-        },
-        {
-            "Packed" : 20,
-            "Time" : '2012-02-02 0900'
-        },
-        {
-            "Packed" : 13,
-            "Time" : '2012-02-02 1000'
-        },        
-        {
-            "Packed" : 23,
-            "Time" : '2012-02-02 1100'
-        },
-        {
-            "Packed" : 45,
-            "Time" : '2012-02-02 1200'
-        },
-        {
-            "Packed" : 1,
-            "Time" : '2012-02-02 1300'
+    "name" : "Conard",
+    "data" : [{
+            "packed" : 10,
+            "time" : '2012-02-02 0800'
+        }, {
+            "packed" : 20,
+            "time" : '2012-02-02 0900'
+        }, {
+            "packed" : 13,
+            "time" : '2012-02-02 1000'
+        }, {
+            "packed" : 23,
+            "time" : '2012-02-02 1100'
+        }, {
+            "packed" : 45,
+            "time" : '2012-02-02 1200'
+        }, {
+            "packed" : 1,
+            "time" : '2012-02-02 1300'
         },
     ]
 };
-
 
 var mattStats = {
-    "Name" : "Matt",
-    "Data" : [
-        {
-            "Packed" : 10,
-            "Time" : '2012-02-02 0800'
-        },
-        {
-            "Packed" : 20,
-            "Time" : '2012-02-02 0900'
-        },
-        {
-            "Packed" : 13,
-            "Time" : '2012-02-02 1000'
-        },        
-        {
-            "Packed" : 23,
-            "Time" : '2012-02-02 1100'
-        },
-        {
-            "Packed" : 45,
-            "Time" : '2012-02-02 1200'
-        },
-        {
-            "Packed" : 1,
-            "Time" : '2012-02-02 1300'
+    "name" : "Matt",
+    "data" : [{
+            "packed" : 10,
+            "time" : '2012-02-02 0800'
+        }, {
+            "packed" : 20,
+            "time" : '2012-02-02 0900'
+        }, {
+            "packed" : 13,
+            "time" : '2012-02-02 1000'
+        }, {
+            "packed" : 23,
+            "time" : '2012-02-02 1100'
+        }, {
+            "packed" : 45,
+            "time" : '2012-02-02 1200'
+        }, {
+            "packed" : 1,
+            "time" : '2012-02-02 1300'
         },
     ]
 };
-
 
 var johnStats = {
-    "Name" : "John",
-    "Data" : [
-        {
-            "Packed" : 10,
-            "Time" : '2012-02-02 0800'
-        },
-        {
-            "Packed" : 20,
-            "Time" : '2012-02-02 0900'
-        },
-        {
-            "Packed" : 13,
-            "Time" : '2012-02-02 1000'
-        },        
-        {
-            "Packed" : 23,
-            "Time" : '2012-02-02 1100'
-        },
-        {
-            "Packed" : 45,
-            "Time" : '2012-02-02 1200'
-        },
-        {
-            "Packed" : 1,
-            "Time" : '2012-02-02 1300'
+    "name" : "John",
+    "data" : [{
+            "packed" : 10,
+            "time" : '2012-02-02 0800'
+        }, {
+            "packed" : 20,
+            "time" : '2012-02-02 0900'
+        }, {
+            "packed" : 13,
+            "time" : '2012-02-02 1000'
+        }, {
+            "packed" : 23,
+            "time" : '2012-02-02 1100'
+        }, {
+            "packed" : 45,
+            "time" : '2012-02-02 1200'
+        }, {
+            "packed" : 1,
+            "time" : '2012-02-02 1300'
         },
     ]
 };
 
-exports.index = function(req, res){
-  res.send(packers);
+exports.index = function (req, res) {
+    res.header('content-type', "application/json");
+    res.render('packer', {
+        site: 'http://localhost:3000/collection/tasks/',
+        packer: packers.packers[0]
+    });
 };
 
-exports.new = function(req, res){
-  console.log('new packer');
-  res.statusCode = 501;
-  res.end();
+exports.new = function (req, res) {
+    console.log('new packer');
+    res.statusCode = 501;
+    res.end();
 };
 
-exports.create = function(req, res){
-  console.log('create packer');
-  res.statusCode = 501;
-  res.end();
+exports.create = function (req, res) {
+    console.log('create packer');
+    res.statusCode = 501;
+    res.end();
 };
 
-exports.show = function(req, res){
-  console.log('show packer ' + req.params.packer);
-  console.log('query url ' + req.query["id"]);
-  switch(req.params.packer) {
+exports.show = function (req, res) {
+    console.log('show packer ' + req.params.packer);
+    console.log('query url ' + req.query["id"]);
+    switch (req.params.packer) {
     case 'John':
-      res.send(johnStats.Data);
-      break;
+        res.send(johnStats.data);
+        break;
     case 'Conard':
-      res.send(conardStats.Data);
-      break;
+        res.send(conardStats.data);
+        break;
     case 'Matt':
-      res.send(mattStats.Data);
-      break;
+        res.send(mattStats.data);
+        break;
     default:
-      res.statusCode = 501;
-      res.send({ error : "Not happening"});
-      break;
-  }
-  //res.send(stats.Data);
-  
+        res.statusCode = 501;
+        res.send({
+            error : "Not happening"
+        });
+        break;
+    }
+    //res.send(stats.Data);
+    
 };
 
-exports.edit = function(req, res){
-  console.log('edit packer ' + req.params.packer);
-  res.statusCode = 501;
-  res.end();
+exports.edit = function (req, res) {
+    console.log('edit packer ' + req.params.packer);
+    res.statusCode = 501;
+    res.end();
 };
 
-exports.update = function(req, res){
-  console.log('update packer ' + req.params.packer);
-  res.statusCode = 501;
-  res.end();
+exports.update = function (req, res) {
+    console.log('update packer ' + req.params.packer);
+    res.statusCode = 501;
+    res.end();
 };
 
-exports.destroy = function(req, res){
-  console.log('destroy packer ' + req.params.packer);
-  res.statusCode = 501;
-  res.end();
+exports.destroy = function (req, res) {
+    console.log('destroy packer ' + req.params.packer);
+    res.statusCode = 501;
+    res.end();
 };
