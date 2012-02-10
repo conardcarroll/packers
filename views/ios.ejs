@@ -1,0 +1,14 @@
+"points" : [
+      <%for(i=0,x=points.length;i<x;i++) {%>
+      {
+        "href" : "<%=site%><%=points[i].id%>",
+        "data" : [
+          {"name" : "name", "value" : "<%=points[i].name%>", "prompt" : "Name"},
+          {"name" : "state", "value" : "<%=points[i].state%>", "prompt" : "State"},
+          {"name" : "type", "value" : "<%=points[i].type%>", "prompt" : "Type"}      
+        ]
+      }
+      <% if(i<points.length-1){%>,<% } %>
+      <% } %>
+    ]
+

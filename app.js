@@ -21,7 +21,7 @@ function() {
 });
 
 app.resource('packers', require('./packers'));
-app.resource('io', require('./io'));
+app.resource('ios', require('./ios'));
 
 express.bodyParser.parse['application/collection+json'] = JSON.parse;
 
